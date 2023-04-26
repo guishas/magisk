@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour
         if(detectionZone.detectedObj.Count > 0) {
             Collider2D target = detectionZone.detectedObj[0];
             Vector2 direction = target.transform.position - transform.position;
+            animator.SetBool("isMoving", true);
             direction.Normalize();
             rb.velocity = direction * movementSpeed;
         } else {
             rb.velocity = Vector2.zero;
+            animator.SetBool("isMoving", false);
         }
     }
 
