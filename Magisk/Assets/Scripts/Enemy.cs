@@ -59,16 +59,19 @@ public class Enemy : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
-        
+      float distance = Vector3.Distance(transform.position, other.gameObject.transform.position);
+      print(distance);
+      if (distance <= 0.7f) {
         if (other.tag == "Player") {
-            PlayerHealth player = other.GetComponent<PlayerHealth>();
+          PlayerHealth player = other.GetComponent<PlayerHealth>();
 
-            if (player != null) {
-                animator.SetTrigger("attack");
-                print("Player Health: " + player.Health);
-                player.Health -= damage;
-            }
+          if (player != null) {
+              animator.SetTrigger("attack");
+              player.Health -= damage;
+              print("Player Health: " + player.Health);
+          }
         }
+      } 
     }
 
 }
