@@ -34,8 +34,6 @@ public class BasicAttack : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
 
             if (enemy!=null) {
-                //print("Health: " + enemy.Health);
-                //print("Damage :" + damage);
                 enemy.Health -= damage;
                 print("Health: " + enemy.Health);
                 
