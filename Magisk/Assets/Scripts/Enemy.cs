@@ -63,7 +63,9 @@ public class Enemy : MonoBehaviour
     }
 
     public void Defeated() {
+
         animator.SetBool("isAlive", false);
+
     }
 
     public void RemoveObject() {
@@ -79,9 +81,11 @@ public class Enemy : MonoBehaviour
           PlayerHealth player = other.GetComponent<PlayerHealth>();
 
           if (player != null) {
-              animator.SetTrigger("attack");
-              player.Health -= damage;
-              print("Player Health: " + player.Health);
+            if(health > 0){
+                animator.SetTrigger("attack");
+                player.Health -= damage;
+                print("Player Health: " + player.Health);
+            }
           }
         }
       } 
