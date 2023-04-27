@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlimeDie
+  m_Name: SproutAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: a9a5ee0852225d54eabe4e5eb9d2a3c9, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 01004ecfc82335e4891a64dd4ea93d48, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 602d2e2e59e24a347b5156c6971187e3, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: cf75d8381c9f05548a8c5d2cf04cb511, type: 3}
+      value: {fileID: 1590824437, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - time: 0.13333334
+      value: {fileID: -1512084135, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - time: 0.26666668
+      value: {fileID: -1387742465, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - time: 0.4
+      value: {fileID: 1574065513, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - time: 0.53333336
+      value: {fileID: 166142226, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - time: 0.6666667
+      value: {fileID: 445857985, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,21 +50,23 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: a9a5ee0852225d54eabe4e5eb9d2a3c9, type: 3}
-    - {fileID: 21300000, guid: 01004ecfc82335e4891a64dd4ea93d48, type: 3}
-    - {fileID: 21300000, guid: 602d2e2e59e24a347b5156c6971187e3, type: 3}
-    - {fileID: 21300000, guid: cf75d8381c9f05548a8c5d2cf04cb511, type: 3}
+    - {fileID: 1590824437, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - {fileID: -1512084135, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - {fileID: -1387742465, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - {fileID: 1574065513, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - {fileID: 166142226, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
+    - {fileID: 445857985, guid: 217e6279f0670494c939b627bbea1a98, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -82,8 +88,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
-    functionName: RemoveObject
+  - time: 0.68333334
+    functionName: UnlockMovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
