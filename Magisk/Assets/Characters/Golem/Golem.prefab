@@ -145,6 +145,7 @@ MonoBehaviour:
   setDistance: 1
   projectileSpawnPoint: {fileID: 6932829840275252204}
   rb: {fileID: 7660884487198517442}
+  player: {fileID: 5392612481781478539, guid: 5beb78fdd20c5e949844b19672e0cd04, type: 3}
   health: 1
 --- !u!1 &8905284187875654570
 GameObject:

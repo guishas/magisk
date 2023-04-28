@@ -24,10 +24,27 @@ public class GolemEnemy : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public GameObject player;
+    public GameObject golem;
     
+    Vector3 posicaoPlayerNoMundo;
+
+    Vector3 posicaoPlayerNoGolem;
+
+
+    void Update()
+    {
+        // Obtém a posição do objeto 2 em relação ao mundo
+        posicaoPlayerNoMundo = player.transform.position;
+
+        // Obtém a posição do objeto 2 em relação ao objeto 1
+        posicaoPlayerNoGolem = golem.transform.InverseTransformPoint(posicaoPlayerNoMundo);
+
+    }
 
     void FixedUpdate() {
         timeSinceLastShot += Time.deltaTime;
+
 
         if(detectionZone.detectedObj.Count > 0) {
             if(timeSinceLastShot >= SHOT_COOLDOWN) {
@@ -65,9 +82,16 @@ public class GolemEnemy : MonoBehaviour
     IEnumerator SpawnProjectile() {
         while (true) {
             yield return new WaitForSeconds(2f); // espera 2 segundos
-            if (detectionZone.detectedObj.Count > 0) { // verifica se ainda há um objeto detectado
-                GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-                projectile.GetComponent<GolemProjectile>().Fire();
+            if (detectionZone.detectedObj.Count > 0) {
+                if (posicaoPlayerNoMundo.x < transform.position.x) {
+                    GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+                    projectile.GetComponent<GolemProjectile>().AttackLeft();
+                }
+                else {
+                    GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+                    projectile.GetComponent<GolemProjectile>().AttackRight();
+                }
+                
             }
         }
     }

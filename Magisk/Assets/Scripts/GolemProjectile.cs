@@ -9,6 +9,8 @@ public class GolemProjectile : MonoBehaviour
 
     Vector3 projectileOffset;
 
+    public SpriteRenderer spriteRenderer;
+
     public float setDistance = 1f;
 
     void Start()
@@ -19,7 +21,20 @@ public class GolemProjectile : MonoBehaviour
 
     public void Fire()
     {
+        
+    }
+
+    public void AttackRight() {
         rb.velocity = new Vector2(projectileSpeed, 0f);
+        spriteRenderer.flipX = false;
+        print("AttackRight");
+    }
+
+    public void AttackLeft() {
+        rb.velocity = new Vector2(projectileSpeed * -1, 0f);
+        spriteRenderer.flipX = true;
+        print("AttackLeft");
+        
     }
 
     
