@@ -6,10 +6,12 @@ public class PlayerHealth : MonoBehaviour
 {
     Animator animator;
     Rigidbody2D rb;
+    public HealthBar healthBar;
 
     public float Health {
         set {
             health = value;
+            healthBar.SetHealth(health);
             if (health <= 0){
                 Defeated();
             }
@@ -19,13 +21,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public float health = 1f;
+    public float health = 250f;
 
 
     private void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("isAlive", true);
+        healthBar.SetMaxHealth(health);
     }
 
     public void Defeated() {
