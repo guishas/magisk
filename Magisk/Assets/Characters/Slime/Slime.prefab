@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   detectionZone: {fileID: 8863963297329008649}
-  movementSpeed: 2.5
+  movementSpeed: 1.4
   setDistance: 0.7
   rb: {fileID: 2371143190736384213}
   health: 50
