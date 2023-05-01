@@ -30,13 +30,26 @@ public class BasicAttack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        print("OnTriggerEnter2D");
+        print("other.tag: " + other.tag);
         if (other.tag == "Enemy") {
+            print("Enemy hit");
             Enemy enemy = other.GetComponent<Enemy>();
+            BatEnemy bat = other.GetComponent<BatEnemy>();
+            Boss boss = other.GetComponent<Boss>();
 
             if (enemy!=null) {
+                print("enemy not null");
                 enemy.Health -= damage;
                 print("Health: " + enemy.Health);
-                
+            }
+            if (bat!=null) {
+                bat.Health -= damage;
+                print("Health: " + bat.Health);
+            }
+            if (boss!=null) {
+                boss.Health -= damage;
+                print("Health: " + boss.Health);
             }
         }
     }

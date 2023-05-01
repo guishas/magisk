@@ -75,7 +75,6 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other) {
       float distance = Vector3.Distance(transform.position, other.gameObject.transform.position);
-      print(distance);
       
       
       if (distance <= setDistance) {

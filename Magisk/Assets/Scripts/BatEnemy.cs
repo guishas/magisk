@@ -23,7 +23,7 @@ public class BatEnemy : MonoBehaviour
 
     void FixedUpdate() {
         if(detectionZone.detectedObj.Count > 0) {
-            print("bat detected");
+            //print("bat detected");
             Collider2D target = detectionZone.detectedObj[0];
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize();
