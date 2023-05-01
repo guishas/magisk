@@ -85,12 +85,14 @@ public class PlayerController : MonoBehaviour
     }
 
     public void BasicAttack() {
+      if (!PauseMenu.isPaused) {
         LockMovement();
         if (spriteRenderer.flipX) {
             basicAttack.AttackLeft();
         } else {
             basicAttack.AttackRight();
         }
+      }
     }
 
     public void EndBasicAttack() {

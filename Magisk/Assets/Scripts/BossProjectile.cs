@@ -10,7 +10,7 @@ public class BossProjectile : MonoBehaviour
     Vector3 projectileOffset;
 
     public SpriteRenderer spriteRenderer;
-    public BoxCollider2D collider;
+    public BoxCollider2D bCollider;
 
     public float setDistance = 1f;
     public float damage = 1f;
@@ -32,7 +32,7 @@ public class BossProjectile : MonoBehaviour
         rb.velocity = direction * projectileSpeed;
         spriteRenderer.flipX = false;
 
-        collider.size = new Vector2(Mathf.Abs(collider.size.x), collider.size.y);
+        bCollider.size = new Vector2(Mathf.Abs(bCollider.size.x), bCollider.size.y);
         print("AttackRight");
     }
 
@@ -42,7 +42,7 @@ public class BossProjectile : MonoBehaviour
         rb.velocity = direction * projectileSpeed;
         spriteRenderer.flipX = true;
 
-        collider.size = new Vector2(-Mathf.Abs(collider.size.x), collider.size.y);
+        bCollider.size = new Vector2(-Mathf.Abs(bCollider.size.x), bCollider.size.y);
         print("AttackLeft");
         
     }

@@ -63,9 +63,10 @@ public class Enemy : MonoBehaviour
     }
 
     public void Defeated() {
-
-        animator.SetBool("isAlive", false);
-
+      animator.SetBool("isAlive", false);
+      if (gameObject.name == "Magma") {
+        FindObjectOfType<CanvaManager>().showDialog();
+      }
     }
 
     public void RemoveObject() {
@@ -74,6 +75,7 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other) {
       float distance = Vector3.Distance(transform.position, other.gameObject.transform.position);
+      print(distance);
       
       
       if (distance <= setDistance) {

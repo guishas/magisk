@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   detectionZone: {fileID: 4840150122826979467}
-  movementSpeed: 1
+  movementSpeed: 2
   setDistance: 0.4
   health: 1
   rb: {fileID: 4319271152150705584}
@@ -220,9 +220,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.024982214, y: 0}
   serializedVersion: 2
-  m_Radius: 10.5
+  m_Radius: 1.8810108
 --- !u!114 &4840150122826979467
 MonoBehaviour:
   m_ObjectHideFlags: 0

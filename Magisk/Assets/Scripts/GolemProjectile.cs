@@ -11,7 +11,7 @@ public class GolemProjectile : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    public BoxCollider2D collider;
+    public BoxCollider2D bCollider;
 
     public float setDistance = 1f;
     public float damage = 1f;
@@ -32,7 +32,7 @@ public class GolemProjectile : MonoBehaviour
         spriteRenderer.enabled = true;
         rb.velocity = new Vector2(projectileSpeed, 0f);
         spriteRenderer.flipX = false;
-        collider.offset = new Vector2(Mathf.Abs(collider.offset.x), collider.offset.y);
+        bCollider.offset = new Vector2(Mathf.Abs(bCollider.offset.x), bCollider.offset.y);
         print("AttackRight");
     }
 
@@ -40,7 +40,7 @@ public class GolemProjectile : MonoBehaviour
         spriteRenderer.enabled = true;
         rb.velocity = new Vector2(projectileSpeed * -1, 0f);
         spriteRenderer.flipX = true;
-        collider.offset = new Vector2(Mathf.Abs(collider.offset.x) * -1, collider.offset.y);
+        bCollider.offset = new Vector2(Mathf.Abs(bCollider.offset.x) * -1, bCollider.offset.y);
         print("AttackLeft");
         
     }
