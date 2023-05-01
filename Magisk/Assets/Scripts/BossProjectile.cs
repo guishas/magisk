@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GolemProjectile : MonoBehaviour
+public class BossProjectile : MonoBehaviour
 {
     public float projectileSpeed = 10f; // velocidade do projetil
     public Rigidbody2D rb;
@@ -10,7 +10,6 @@ public class GolemProjectile : MonoBehaviour
     Vector3 projectileOffset;
 
     public SpriteRenderer spriteRenderer;
-
     public BoxCollider2D collider;
 
     public float setDistance = 1f;
@@ -18,7 +17,6 @@ public class GolemProjectile : MonoBehaviour
 
     void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
         projectileOffset = transform.position;
         spriteRenderer.enabled = false;
     }
@@ -28,19 +26,23 @@ public class GolemProjectile : MonoBehaviour
         
     }
 
-    public void AttackRight() {
+    public void AttackRight(Vector3 targetPosition) {
         spriteRenderer.enabled = true;
-        rb.velocity = new Vector2(projectileSpeed, 0f);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        rb.velocity = direction * projectileSpeed;
         spriteRenderer.flipX = false;
-        collider.offset = new Vector2(Mathf.Abs(collider.offset.x), collider.offset.y);
+
+        collider.size = new Vector2(Mathf.Abs(collider.size.x), collider.size.y);
         print("AttackRight");
     }
 
-    public void AttackLeft() {
+    public void AttackLeft(Vector3 targetPosition) {
         spriteRenderer.enabled = true;
-        rb.velocity = new Vector2(projectileSpeed * -1, 0f);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        rb.velocity = direction * projectileSpeed;
         spriteRenderer.flipX = true;
-        collider.offset = new Vector2(Mathf.Abs(collider.offset.x) * -1, collider.offset.y);
+
+        collider.size = new Vector2(-Mathf.Abs(collider.size.x), collider.size.y);
         print("AttackLeft");
         
     }
