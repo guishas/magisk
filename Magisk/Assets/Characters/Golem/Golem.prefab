@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1adc20d5cabb564bb7eed2c0f2cb52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 40
   detectionZone: {fileID: 2398280089365154299}
   projectilePrefab: {fileID: 6000116827504698762, guid: 0f004c20c9dcc94439f2241643d98afc,
     type: 3}
@@ -146,6 +146,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 6932829840275252204}
   rb: {fileID: 7660884487198517442}
   player: {fileID: 5392612481781478539, guid: 5beb78fdd20c5e949844b19672e0cd04, type: 3}
+  golem: {fileID: 0}
   health: 1
 --- !u!1 &8905284187875654570
 GameObject:

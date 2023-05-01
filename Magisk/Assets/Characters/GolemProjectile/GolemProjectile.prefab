@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344f35c40bfc3a04eb3de815b92b4921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 1
+  projectileSpeed: 7
   rb: {fileID: 995026321769289074}
   spriteRenderer: {fileID: 6000116827504698760}
   setDistance: 0.015
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 2
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!61 &8494535219347773041
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,8 +6,6 @@ public class GolemEnemy : MonoBehaviour
 {
     //Animator animator;
 
-    public float damage = 1f;
-
     public GolemDZ detectionZone;
 
     public GameObject projectilePrefab;

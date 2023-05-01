@@ -12,6 +12,7 @@ public class GolemProjectile : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public float setDistance = 1f;
+    public float damage = 1f;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class GolemProjectile : MonoBehaviour
         PlayerHealth player = other.GetComponent<PlayerHealth>();
         if (other.tag == "Player") {
             if (player != null) {
-                player.Health -= 1f;
+                player.Health -= damage;
                 Destroy(gameObject);
                 print("Player Health: " + player.Health);
             }
