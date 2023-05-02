@@ -142,6 +142,7 @@ public class Boss : MonoBehaviour
     public void RemoveObject()
     {
         Destroy(gameObject);
+        FindObjectOfType<CanvaManager>().showFinalDialog();
     }
 
 

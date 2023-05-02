@@ -76,13 +76,13 @@ public class Enemy : MonoBehaviour
 
     public void Defeated() {
       animator.SetBool("isAlive", false);
-      if (gameObject.name == "Magma") {
-        FindObjectOfType<CanvaManager>().showDialog();
-      }
     }
 
     public void RemoveObject() {
         Destroy(gameObject);
+        if (gameObject.name == "Magma") {
+          FindObjectOfType<CanvaManager>().showDialog();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
