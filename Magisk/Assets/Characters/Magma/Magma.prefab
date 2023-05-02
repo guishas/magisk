@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   detectionZone: {fileID: 886190798655803791}
+  spriteRenderer: {fileID: 7039046889679367273}
   movementSpeed: 1
   setDistance: 1
   rb: {fileID: 7648597836760124688}

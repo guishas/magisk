@@ -18,7 +18,6 @@ public class BossProjectile : MonoBehaviour
     void Start()
     {
         projectileOffset = transform.position;
-        spriteRenderer.enabled = false;
     }
 
     public void Fire()
@@ -26,28 +25,28 @@ public class BossProjectile : MonoBehaviour
         
     }
 
-    public void AttackRight(Vector3 targetPosition) {
-        spriteRenderer.enabled = true;
-        Vector3 direction = (targetPosition - transform.position).normalized;
-        rb.velocity = direction * projectileSpeed;
-        spriteRenderer.flipX = false;
+    public void AttackRight() {
+    GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+    Vector3 targetPosition = playerObject.transform.position;
+    Vector3 direction = (targetPosition - transform.position).normalized;
+    rb.velocity = direction * projectileSpeed;
+    spriteRenderer.flipX = true;
 
-        bCollider.size = new Vector2(Mathf.Abs(bCollider.size.x), bCollider.size.y);
-        print("AttackRight");
-    }
+    bCollider.size = new Vector2(Mathf.Abs(bCollider.size.x), bCollider.size.y);
+    print("AttackRight");
+}
 
-    public void AttackLeft(Vector3 targetPosition) {
-        spriteRenderer.enabled = true;
-        Vector3 direction = (targetPosition - transform.position).normalized;
-        rb.velocity = direction * projectileSpeed;
-        spriteRenderer.flipX = true;
+public void AttackLeft() {
+    GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+    Vector3 targetPosition = playerObject.transform.position;
+    Vector3 direction = (targetPosition - transform.position).normalized;
+    rb.velocity = direction * projectileSpeed;
+    spriteRenderer.flipX = false;
 
-        bCollider.size = new Vector2(-Mathf.Abs(bCollider.size.x), bCollider.size.y);
-        print("AttackLeft");
-        
-    }
-
-    
+    bCollider.size = new Vector2(Mathf.Abs(bCollider.size.x), bCollider.size.y);
+    bCollider.offset = new Vector2(-bCollider.offset.x, bCollider.offset.y);
+    print("AttackLeft");
+}
 
     private void OnTriggerEnter2D(Collider2D other) {
         

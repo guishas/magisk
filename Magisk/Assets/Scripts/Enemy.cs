@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     public DetectionZone detectionZone;
 
+    public SpriteRenderer spriteRenderer;
+
     public float movementSpeed = 1f;
 
     bool canMove = true;
@@ -27,6 +29,16 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("isMoving", true);
                 direction.Normalize();
                 rb.velocity = direction * movementSpeed;
+
+                if (direction.x > 0)
+                {
+                    spriteRenderer.flipX = true;
+                }
+                else
+                {
+                    spriteRenderer.flipX = false;
+                }
+
             } else {
                 rb.velocity = Vector2.zero;
                 animator.SetBool("isMoving", false);

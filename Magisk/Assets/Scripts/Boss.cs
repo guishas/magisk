@@ -15,7 +15,7 @@ public class Boss : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    public HealthBar healthBar;
+    //public HealthBar healthBar;
 
     public GameObject bossProjectilePrefab;
 
@@ -28,7 +28,7 @@ public class Boss : MonoBehaviour
     public float minFireInterval = 1f;
     public float maxFireInterval = 3f;
 
-    private float currentFireInterval;
+    private const float SHOT_COOLDOWN = 0.5f;
 
     // The timer to keep track of time between projectile fires
     private float fireTimer;
@@ -39,10 +39,8 @@ public class Boss : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        healthBar.SetMaxHealth(health);
+        //healthBar.SetMaxHealth(health);
 
-        // Set the boss's current fire interval to a random value between the min and max fire intervals
-        currentFireInterval = Random.Range(minFireInterval, maxFireInterval);
         StartCoroutine(FireProjectiles());
     }
 
@@ -61,18 +59,18 @@ public class Boss : MonoBehaviour
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize();
             rb.velocity = direction * movementSpeed;
-            if (fireTimer >= currentFireInterval){
+            if (fireTimer >= SHOT_COOLDOWN){
                 FireProjectiles();
 
             }
 
             if (direction.x > 0)
             {
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = false;
             }
             else
             {
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = true;
             }
 
         }
@@ -91,7 +89,7 @@ public class Boss : MonoBehaviour
             }
 
             health = value;
-            healthBar.SetHealth(health);
+            //healthBar.SetHealth(health);
             if (health <= 0){
                 Defeated();
             }
@@ -111,23 +109,19 @@ public class Boss : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(currentFireInterval);
+            yield return new WaitForSeconds(0.5f);
             if (detectionZone.detectedObj.Count > 0) {
+                print("player" + posicaoPlayerNoMundo.x);
+                print("boss" +transform.position.x);
                 if (posicaoPlayerNoMundo.x < transform.position.x) {
                     GameObject projectile = Instantiate(bossProjectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-                    projectile.GetComponent<BossProjectile>().AttackLeft(player.transform.position);
-                    // Reset the fire timer
+                    projectile.GetComponent<BossProjectile>().AttackLeft();
                     fireTimer = 0f;
-                    // Set a new random fire interval between the min and max fire intervals
-                    currentFireInterval = Random.Range(minFireInterval, maxFireInterval);
                 }
                 else {
                     GameObject projectile = Instantiate(bossProjectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-                    projectile.GetComponent<BossProjectile>().AttackRight(player.transform.position);
-                    // Reset the fire timer
+                    projectile.GetComponent<BossProjectile>().AttackRight();
                     fireTimer = 0f;
-                    // Set a new random fire interval between the min and max fire intervals
-                    currentFireInterval = Random.Range(minFireInterval, maxFireInterval);
                 }
             }
 

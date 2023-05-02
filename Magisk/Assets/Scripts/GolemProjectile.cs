@@ -20,7 +20,6 @@ public class GolemProjectile : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody2D>();
         projectileOffset = transform.position;
-        spriteRenderer.enabled = false;
     }
 
     public void Fire()
@@ -29,7 +28,6 @@ public class GolemProjectile : MonoBehaviour
     }
 
     public void AttackRight() {
-        spriteRenderer.enabled = true;
         rb.velocity = new Vector2(projectileSpeed, 0f);
         spriteRenderer.flipX = false;
         bCollider.offset = new Vector2(Mathf.Abs(bCollider.offset.x), bCollider.offset.y);
@@ -37,7 +35,6 @@ public class GolemProjectile : MonoBehaviour
     }
 
     public void AttackLeft() {
-        spriteRenderer.enabled = true;
         rb.velocity = new Vector2(projectileSpeed * -1, 0f);
         spriteRenderer.flipX = true;
         bCollider.offset = new Vector2(Mathf.Abs(bCollider.offset.x) * -1, bCollider.offset.y);
