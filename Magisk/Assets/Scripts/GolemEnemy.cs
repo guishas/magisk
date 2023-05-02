@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GolemEnemy : MonoBehaviour
 {
-    //Animator animator;
+    Animator animator;
 
     public GolemDZ detectionZone;
 
     public GameObject projectilePrefab;
+
+    public SpriteRenderer spriteRenderer;
 
     public float movementSpeed = 1f;
 
@@ -54,9 +56,6 @@ public class GolemEnemy : MonoBehaviour
 
     public float Health {
         set {
-            if (value < health) {
-                //animator.SetTrigger("hit");
-            }
 
             health = value;
             if (health <= 0){
@@ -71,8 +70,8 @@ public class GolemEnemy : MonoBehaviour
     public float health = 1f;
 
     private void Start() {
-        //animator = GetComponent<Animator>();
-        //animator.SetBool("isAlive", true);
+        animator = GetComponent<Animator>();
+        animator.SetBool("isAlive", true);
         //rb = GetComponent<Rigidbody2D>();
         StartCoroutine(SpawnProjectile());
     }
@@ -82,12 +81,17 @@ public class GolemEnemy : MonoBehaviour
             yield return new WaitForSeconds(2f); // espera 2 segundos
             if (detectionZone.detectedObj.Count > 0) {
                 if (posicaoPlayerNoMundo.x < transform.position.x) {
+                    animator.SetTrigger("shoot");
                     GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
                     projectile.GetComponent<GolemProjectile>().AttackLeft();
+                    spriteRenderer.flipX = true;
+
                 }
                 else {
+                    animator.SetTrigger("shoot");
                     GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
                     projectile.GetComponent<GolemProjectile>().AttackRight();
+                    spriteRenderer.flipX = false;
                 }
                 
             }
@@ -95,19 +99,11 @@ public class GolemEnemy : MonoBehaviour
     }
 
     public void Defeated() {
-        //animator.SetBool("isAlive", false);
+        animator.SetBool("isAlive", false);
     }
 
     public void RemoveObject() {
         Destroy(gameObject);
     }
 
-
-    /* public void LockMovement() {
-        canMove = false;
-    }
-
-    public void UnlockMovement() {
-        canMove = true;
-    } */
 }

@@ -33,7 +33,6 @@ public class BossProjectile : MonoBehaviour
     spriteRenderer.flipX = true;
 
     bCollider.size = new Vector2(Mathf.Abs(bCollider.size.x), bCollider.size.y);
-    print("AttackRight");
 }
 
 public void AttackLeft() {
@@ -45,7 +44,6 @@ public void AttackLeft() {
 
     bCollider.size = new Vector2(Mathf.Abs(bCollider.size.x), bCollider.size.y);
     bCollider.offset = new Vector2(-bCollider.offset.x, bCollider.offset.y);
-    print("AttackLeft");
 }
 
     private void OnTriggerEnter2D(Collider2D other) {

@@ -33,13 +33,12 @@ public class BasicAttack : MonoBehaviour
         print("OnTriggerEnter2D");
         print("other.tag: " + other.tag);
         if (other.tag == "Enemy") {
-            print("Enemy hit");
             Enemy enemy = other.GetComponent<Enemy>();
             BatEnemy bat = other.GetComponent<BatEnemy>();
             Boss boss = other.GetComponent<Boss>();
+            GolemEnemy golem = other.GetComponent<GolemEnemy>();
 
             if (enemy!=null) {
-                print("enemy not null");
                 enemy.Health -= damage;
                 print("Health: " + enemy.Health);
             }
@@ -50,6 +49,10 @@ public class BasicAttack : MonoBehaviour
             if (boss!=null) {
                 boss.Health -= damage;
                 print("Health: " + boss.Health);
+            }
+            if (golem!=null) {
+                golem.Health -= damage;
+                print("Health: " + golem.Health);
             }
         }
     }

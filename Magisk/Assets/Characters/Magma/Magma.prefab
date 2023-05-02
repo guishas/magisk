@@ -214,7 +214,7 @@ MonoBehaviour:
   detectionZone: {fileID: 886190798655803791}
   spriteRenderer: {fileID: 7039046889679367273}
   movementSpeed: 1
-  setDistance: 1
+  setDistance: 3
   rb: {fileID: 7648597836760124688}
   health: 1
 --- !u!95 &719426417052947165
