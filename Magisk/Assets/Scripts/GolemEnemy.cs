@@ -25,7 +25,7 @@ public class GolemEnemy : MonoBehaviour
     public Rigidbody2D rb;
 
     public GameObject player;
-    public GameObject golem;
+    //public GameObject golem;
     
     Vector3 posicaoPlayerNoMundo;
 
@@ -38,7 +38,6 @@ public class GolemEnemy : MonoBehaviour
         posicaoPlayerNoMundo = player.transform.position;
 
         // Obtém a posição do objeto 2 em relação ao objeto 1
-        posicaoPlayerNoGolem = golem.transform.InverseTransformPoint(posicaoPlayerNoMundo);
 
     }
 

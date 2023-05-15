@@ -240,12 +240,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0ccbf280849704f8162ad4c0d9f061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 0.5
   health: 100
   detectionZone: {fileID: 8204878641674211122}
   bossProjectilePrefab: {fileID: 4057650570805702253, guid: 09db3af689ea43b48b228124338d0d8c,
     type: 3}
   player: {fileID: 5392612481781478539, guid: 5beb78fdd20c5e949844b19672e0cd04, type: 3}
+  bossProjectile: {fileID: 0}
   rb: {fileID: 8116180516310991313}
   projectileSpawnPoint: {fileID: 3725269050771766452}
   minFireInterval: 1

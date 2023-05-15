@@ -102,7 +102,9 @@ MonoBehaviour:
   projectileSpeed: 7
   rb: {fileID: 995026321769289074}
   spriteRenderer: {fileID: 6000116827504698760}
+  bCollider: {fileID: 8494535219347773041}
   setDistance: 0.015
+  damage: 1
 --- !u!50 &995026321769289074
 Rigidbody2D:
   serializedVersion: 4
